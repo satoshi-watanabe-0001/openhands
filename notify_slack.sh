@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Slack Bot User OAuth Token と チャンネルID を設定
-***REMOVED***
+BOT_TOKEN="***REMOVED***"
 CHANNEL_ID="C08GG0WTE9W"
 
 
