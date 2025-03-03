@@ -1,9 +1,8 @@
 #!/bin/bash
 
-# Slack Bot User OAuth Token と チャンネルID を設定
-BOT_TOKEN="***REMOVED***"
-CHANNEL_ID="C08GG0WTE9W"
-
+# Slack Bot User OAuth Token と チャンネルID を環境変数から取得
+BOT_TOKEN="${BOT_TOKEN:?BOT_TOKEN environment variable not set}"
+CHANNEL_ID="${CHANNEL_ID:?CHANNEL_ID environment variable not set}"
 
 # 作業の例 (ファイルを作成)
 # ここに実際の作業コマンドを記述。例えば、
@@ -11,12 +10,11 @@ CHANNEL_ID="C08GG0WTE9W"
 # ... 何らかの処理 ...
 # echo "作業が完了しました"
 
-
 # Slackに通知 (chat.postMessageの場合)
 curl -X POST -H 'Authorization: Bearer '$BOT_TOKEN'' \\
-      -H 'Content-type: application/json' \\
-      --data '{
+     -H 'Content-type: application/json' \\
+     --data '{
          "channel": "'$CHANNEL_ID'",
          "text": "OpenHandsの作業が完了しました！"
-      }' \\
-      https://slack.com/api/chat.postMessage
+     }' \\
+     https://slack.com/api/chat.postMessage
